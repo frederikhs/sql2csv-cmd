@@ -10,7 +10,7 @@
 
 ## Usage
 
-```shell
+```text
 Usage of sql2csv-cmd:
   -c string
     	connection string for the database: postgres://user:pass@host:port/dbname
