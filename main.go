@@ -77,7 +77,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	ctx := createContext(*t)
+	ctx, _ := createContext(*t)
 	err = conn.WriteQuery(ctx, query, *o, loggerFn)
 	if err != nil {
 		fmt.Println(err)
@@ -94,14 +94,14 @@ func readQueryFromFile(path string) (*sql2csv.Query, error) {
 	return sql2csv.NewQuery(string(f))
 }
 
-func createContext(timeout int) context.Context {
+func createContext(timeout int) (context.Context, context.CancelFunc) {
 	if timeout == 0 {
-		return context.Background()
+		return context.Background(), nil
 	}
 
-	c, _ := context.WithTimeout(context.Background(), time.Second*time.Duration(timeout))
+	c, cancel := context.WithTimeout(context.Background(), time.Second*time.Duration(timeout))
 
-	return c
+	return c, cancel
 }
 
 func verboseLog(logger *log.Logger, verbose bool, ln string) {
