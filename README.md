@@ -1,4 +1,4 @@
-# sql2csv
+# sql2csv-cmd
 
 [![GoDoc](https://godoc.org/github.com/frederikhs/sql2csv-cmd?status.svg)](https://godoc.org/github.com/frederikhs/sql2csv-cmd)
 [![Quality](https://goreportcard.com/badge/github.com/frederikhs/sql2csv-cmd)](https://goreportcard.com/report/github.com/frederikhs/sql2csv-cmd)
@@ -35,4 +35,30 @@ sql2csv-cmd -d db.example.com -q "SELECT * FROM public.users" -o users.csv
 
 ```shell
 sql2csv-cmd -d db.example.com -f query.sql -o query.csv
+```
+
+## Installation
+
+### Linux amd64
+
+```bash
+# install
+curl -L https://github.com/frederikhs/sql2csv-cmd/releases/latest/download/sql2csv-cmd_Linux_x86_64.tar.gz -o sql2csv-cmd.tar.gz
+tar -xvf sql2csv-cmd.tar.gz
+sudo mv sql2csv-cmd /usr/local/bin/sql2csv-cmd
+
+# clean up
+rm sql2csv-cmd.tar.gz
+```
+
+## .pgpass
+
+sql2csv-cmd uses the `.pgpass` file that resides in the `$HOME` directory of the user running the program.
+
+---
+
+Example of a connection configuration in the `.pgpass` file
+
+```
+<HOST>:<PORT>:<DATABASE>:<USERNAME>:<PASSWORD>
 ```
