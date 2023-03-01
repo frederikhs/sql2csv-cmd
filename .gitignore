@@ -2,3 +2,4 @@
 *.sql
 *.csv
 sql2csv-cmd*
+dist
