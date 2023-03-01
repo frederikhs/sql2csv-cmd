@@ -1,4 +1,4 @@
 .idea
 *.sql
 *.csv
-sql2csv-cmd
+sql2csv-cmd*
